@@ -2,9 +2,20 @@ package sync
 
 import (
 	"github.com/arran4/golang-ical"
+	log "github.com/sirupsen/logrus"
 	"net/http"
 	"net/url"
+	"os"
 )
+
+var (
+	client *SportsEngineClient
+)
+
+func init() {
+	log.SetFormatter(&log.JSONFormatter{})
+	client = NewSportsEngineClient(os.Getenv("USERNAME"), os.Getenv("PASSWORD"))
+}
 
 func Sync(w http.ResponseWriter, r *http.Request) {
 
