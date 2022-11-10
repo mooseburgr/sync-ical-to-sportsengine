@@ -1,11 +1,15 @@
 package sync
 
 import (
-	"github.com/arran4/golang-ical"
+	ics "github.com/arran4/golang-ical"
 	log "github.com/sirupsen/logrus"
 	"net/http"
 	"net/url"
 	"os"
+)
+
+const (
+	GREY_DUCKS = "11ed1861-cca4-306e-ba7c-da146b0cad6f"
 )
 
 var (
@@ -14,7 +18,7 @@ var (
 
 func init() {
 	log.SetFormatter(&log.JSONFormatter{})
-	client = NewSportsEngineClient(os.Getenv("USERNAME"), os.Getenv("PASSWORD"))
+	client = NewSportsEngineClient("kylejohson.mn@gmail.com", GetPassword())
 }
 
 func Sync(w http.ResponseWriter, r *http.Request) {
@@ -40,4 +44,13 @@ func Sync(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+}
+
+func GetPassword() string {
+	if token := os.Getenv("PASSWORD"); token != "" {
+		return token
+	} else {
+		bytes, _ := os.ReadFile("se-password")
+		return string(bytes)
+	}
 }

@@ -20,3 +20,5 @@ se-password
 
 
 java/.gradle
+
+java/build
