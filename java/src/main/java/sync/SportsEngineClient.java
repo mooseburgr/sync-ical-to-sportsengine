@@ -27,7 +27,6 @@ public class SportsEngineClient {
           .build();
 
   public void login() throws IOException, InterruptedException {
-    var formBody = String.format("user[login]=%s&user[password]=%s", username, password);
     var resp =
         client.send(
             HttpRequest.newBuilder()
