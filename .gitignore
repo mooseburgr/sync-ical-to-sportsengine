@@ -15,5 +15,10 @@
 # vendor/
 
 .idea
-go/se-password
-java/se-password
+
+se-password
+
+
+java/.gradle
+
+java/build
