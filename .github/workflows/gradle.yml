@@ -29,6 +29,6 @@ jobs:
         distribution: 'temurin'
     - name: Build with Gradle
       uses: gradle/gradle-build-action@v2
-      working-directory: ./java
       with:
         arguments: build
+        build-root-directory: ./java
