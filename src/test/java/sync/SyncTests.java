@@ -1,12 +1,11 @@
 package sync;
 
+import java.nio.file.Files;
+import java.nio.file.Path;
 import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 @ExtendWith(MockitoExtension.class)
 public class SyncTests {
@@ -15,7 +14,9 @@ public class SyncTests {
 
   @BeforeEach
   public void setup() throws Exception {
-    client = new SportsEngineClient("kylejohnson.mn@gmail.com", Files.readString(Path.of("se-password")));
+    client =
+        new SportsEngineClient(
+            "kylejohnson.mn@gmail.com", Files.readString(Path.of("se-password")));
   }
 
   @Test

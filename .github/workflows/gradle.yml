@@ -13,10 +13,6 @@ on:
   pull_request:
     branches: [ "main" ]
 
-defaults:
-  run:
-    working-directory: ./java
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -31,4 +27,3 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: build
-        build-root-directory: ./java
