@@ -13,7 +13,7 @@ configurations {
 }
 
 dependencies {
-  implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
+  implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
   implementation 'org.slf4j:log4j-over-slf4j:2.0.4'
 
   // Every function needs this dependency to get the Functions Framework API.
