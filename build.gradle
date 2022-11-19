@@ -13,7 +13,9 @@ configurations {
 }
 
 dependencies {
-  implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
+  implementation(platform("com.fasterxml.jackson:jackson-bom:2.14.0"))
+  implementation 'com.fasterxml.jackson.core:jackson-databind'
+  implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
   implementation 'org.slf4j:log4j-over-slf4j:2.0.4'
 
   // Every function needs this dependency to get the Functions Framework API.
@@ -43,6 +45,10 @@ tasks.register("runFunction", JavaExec) {
   doFirst {
     args('--classpath', files(configurations.runtimeClasspath, sourceSets.main.output).asPath)
   }
+}
+
+test {
+  useJUnitPlatform()
 }
 
 spotless {

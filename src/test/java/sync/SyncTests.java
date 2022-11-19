@@ -1,27 +1,25 @@
 package sync;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import org.junit.Test;
+import static sync.Sync.GREY_DUCKS_ID;
+
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
-public class SyncTests {
+class SyncTests {
 
   SportsEngineClient client;
 
   @BeforeEach
-  public void setup() throws Exception {
-    client =
-        new SportsEngineClient(
-            "kylejohnson.mn@gmail.com", Files.readString(Path.of("se-password")));
+  void setup() throws Exception {
+    client = new SportsEngineClient();
   }
 
   @Test
-  public void testLogin() throws Exception {
-    setup();
+  void testClient() throws Exception {
     client.login();
+    var calendar = client.getTeamCalendar(GREY_DUCKS_ID);
   }
 }
