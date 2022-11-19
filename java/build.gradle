@@ -14,7 +14,7 @@ configurations {
 
 dependencies {
   implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
-  implementation 'org.slf4j:log4j-over-slf4j:2.0.3'
+  implementation 'org.slf4j:log4j-over-slf4j:2.0.4'
 
   // Every function needs this dependency to get the Functions Framework API.
   compileOnly 'com.google.cloud.functions:functions-framework-api:1.0.4'
