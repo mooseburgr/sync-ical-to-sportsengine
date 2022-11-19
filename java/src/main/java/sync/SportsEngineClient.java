@@ -28,14 +28,15 @@ public class SportsEngineClient {
 
   public void login() throws IOException, InterruptedException {
     var formBody = String.format("user[login]=%s&user[password]=%s", username, password);
-    var resp = client.send(
-        HttpRequest.newBuilder()
-            .uri(URI.create("https://user.sportngin.com/users/sign_in"))
-            .POST(
-                BodyPublishers.ofString(
-                    String.format("user[login]=%s&user[password]=%s", username, password)))
-            .build(),
-        BodyHandlers.ofString());
+    var resp =
+        client.send(
+            HttpRequest.newBuilder()
+                .uri(URI.create("https://user.sportngin.com/users/sign_in"))
+                .POST(
+                    BodyPublishers.ofString(
+                        String.format("user[login]=%s&user[password]=%s", username, password)))
+                .build(),
+            BodyHandlers.ofString());
     log.info("successful login: {}", resp.body());
   }
 }
