@@ -6,7 +6,7 @@ require (
 	github.com/arran4/golang-ical v0.0.0-20221122102835-109346913e54
 	github.com/sirupsen/logrus v1.9.0
 	github.com/stretchr/testify v1.8.1
-	golang.org/x/net v0.6.0
+	golang.org/x/net v0.7.0
 )
 
 require (
