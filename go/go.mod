@@ -5,7 +5,7 @@ go 1.19
 require (
 	github.com/arran4/golang-ical v0.0.0-20230213232137-07c6aad5e4f0
 	github.com/sirupsen/logrus v1.9.0
-	github.com/stretchr/testify v1.8.1
+	github.com/stretchr/testify v1.8.2
 	golang.org/x/net v0.7.0
 )
 
