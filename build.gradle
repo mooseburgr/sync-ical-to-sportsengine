@@ -22,7 +22,7 @@ dependencies {
   compileOnly 'com.google.cloud.functions:functions-framework-api:1.0.4'
 
   // To run function locally using Functions Framework's local invoker
-  invoker 'com.google.cloud.functions.invoker:java-function-invoker:1.2.0'
+  invoker 'com.google.cloud.functions.invoker:java-function-invoker:1.2.1'
 
   // These dependencies are only used by the tests.
   testImplementation 'com.google.cloud.functions:functions-framework-api:1.0.4'
