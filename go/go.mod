@@ -3,7 +3,7 @@ module github.com/mooseburgr/sync-ical-to-sportsengine
 go 1.19
 
 require (
-	github.com/arran4/golang-ical v0.0.0-20230425234049-f69e132f2b0c
+	github.com/arran4/golang-ical v0.1.0
 	github.com/sirupsen/logrus v1.9.3
 	github.com/stretchr/testify v1.8.4
 	golang.org/x/net v0.11.0
