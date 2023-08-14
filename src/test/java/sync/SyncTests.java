@@ -17,6 +17,7 @@ class SyncTests {
     client = new SportsEngineClient();
   }
 
+  //  @Disabled("fix NoSuchFileException on GHA runner")
   @Test
   void testClient() throws Exception {
     client.login();

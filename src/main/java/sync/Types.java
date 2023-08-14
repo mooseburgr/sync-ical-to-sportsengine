@@ -75,6 +75,7 @@ public class Types {
     private String last_page_href;
     private int current_page;
     private int limit;
+    private int offset;
   }
 
   @Data

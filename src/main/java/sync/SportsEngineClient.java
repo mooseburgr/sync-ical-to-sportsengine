@@ -4,9 +4,8 @@ import static java.net.http.HttpRequest.*;
 import static java.net.http.HttpResponse.*;
 import static sync.Types.*;
 
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import java.io.IOException;
 import java.net.CookieManager;
 import java.net.CookiePolicy;
 import java.net.URI;
@@ -16,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 
 @RequiredArgsConstructor
@@ -24,18 +24,22 @@ public class SportsEngineClient {
   private final String username;
   private final String password;
 
-  private static final ObjectMapper om = new ObjectMapper().registerModule(new JavaTimeModule());
+  private static final ObjectMapper om =
+      new ObjectMapper()
+          .findAndRegisterModules()
+          .disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
   private final HttpClient client =
       HttpClient.newBuilder()
           .followRedirects(HttpClient.Redirect.ALWAYS)
           .cookieHandler(new CookieManager(null, CookiePolicy.ACCEPT_ALL))
           .build();
 
-  public SportsEngineClient() throws IOException {
+  @SneakyThrows
+  public SportsEngineClient() {
     this.username = "kylejohnson.mn@gmail.com";
     this.password =
         Optional.ofNullable(System.getenv("SE_PASSWORD"))
-            .orElse(Files.readString(Path.of("se-password")));
+            .orElse(Files.readString(Path.of("./se-password")));
   }
 
   public void login() throws Exception {
