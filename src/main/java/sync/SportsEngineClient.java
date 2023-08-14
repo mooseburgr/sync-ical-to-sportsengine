@@ -13,10 +13,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -37,9 +37,11 @@ public class SportsEngineClient {
   @SneakyThrows
   public SportsEngineClient() {
     this.username = "kylejohnson.mn@gmail.com";
-    this.password =
-        Optional.ofNullable(System.getenv("SE_PASSWORD"))
-            .orElse(Files.readString(Path.of("./se-password")));
+    var pwToUse = System.getenv("SE_PASSWORD");
+    if (StringUtils.isBlank(pwToUse)) {
+      pwToUse = Files.readString(Path.of("./se-password"));
+    }
+    this.password = pwToUse;
   }
 
   public void login() throws Exception {
