@@ -1,6 +1,6 @@
 module github.com/mooseburgr/sync-ical-to-sportsengine
 
-go 1.19
+go 1.21
 
 require (
 	github.com/arran4/golang-ical v0.1.0
