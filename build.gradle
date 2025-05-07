@@ -31,7 +31,7 @@ dependencies {
   testImplementation 'org.junit.jupiter:junit-jupiter-api'
   testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
   testImplementation 'com.google.cloud.functions:functions-framework-api:1.1.0'
-  testImplementation 'com.google.truth:truth:1.1.5'
+  testImplementation 'com.google.truth:truth:1.4.4'
   testImplementation 'org.mockito:mockito-junit-jupiter:5.8.0'
 
 }
