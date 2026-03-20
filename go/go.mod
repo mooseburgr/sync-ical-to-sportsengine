@@ -6,8 +6,8 @@ toolchain go1.24.2
 
 require (
 	github.com/arran4/golang-ical v0.2.1
-	github.com/sirupsen/logrus v1.9.3
-	github.com/stretchr/testify v1.8.4
+	github.com/sirupsen/logrus v1.9.4
+	github.com/stretchr/testify v1.10.0
 	golang.org/x/net v0.38.0
 )
 
